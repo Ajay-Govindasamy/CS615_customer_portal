@@ -603,4 +603,28 @@ margin-left: 50px; background-color:#353b48;
     font-size: xxx-large;
     }
 
-    
+    table {
+        font-family: arial, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+      
+      td, th {
+        border: 1px solid #dddddd;
+        text-align: left;
+        padding: 8px;
+      }
+      
+      tr:nth-child(even) {
+        background-color: #dddddd;
+      }
+      
+      table tbody tr th  {
+        font-size: 24px;
+      }
+ 
+      table tbody tr td  {
+        font-size: 15px;
+      }
+
+     

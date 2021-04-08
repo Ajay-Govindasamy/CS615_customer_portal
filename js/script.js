@@ -417,9 +417,15 @@ function addCartItems(itemName,itemPrice) {
 },
 };
   iqwerty.toast.toast('Item Added to cart!',options);
-  var item = {itemName: itemName, itemPrice: itemPrice};  
+  var itemQuantity = 1;
+  var item = {itemName: itemName, itemPrice: itemPrice, quantity: itemQuantity};  
   cartItems.push(item);
   localStorage.setItem("itemsList", JSON.stringify(cartItems));
-  console.log(cartItems);
+  var displayItems = JSON.parse(localStorage.getItem('itemsList'));
+  displayItems.forEach(element => {
+    $('#addItems tr:last').after(`<tr><td>${element.itemName}</td><td>${element.itemPrice}</td><td>${element.quantity}</td></tr>`);
+   
+});
+cartItems=[];
 
 }
