@@ -407,6 +407,8 @@ function saveBusinessInLocal(businessMail){
 }
 
 var cartItems = [];
+var total=0;
+
 function addCartItems(itemName,itemPrice) {
   const options = {
     style: {
@@ -422,10 +424,15 @@ function addCartItems(itemName,itemPrice) {
   cartItems.push(item);
   localStorage.setItem("itemsList", JSON.stringify(cartItems));
   var displayItems = JSON.parse(localStorage.getItem('itemsList'));
+  var i;
+  
+  for (i = 0; i < cartItems.length; i++) {
+  total= total+parseFloat(cartItems[i].itemPrice);
+  }
   displayItems.forEach(element => {
     $('#addItems tr:last').after(`<tr><td>${element.itemName}</td><td>${element.itemPrice}</td><td>${element.quantity}</td></tr>`);
-   
 });
+document.getElementById("totalPrice").innerHTML=`Total: ${total.toFixed(2)}`;
 cartItems=[];
 
 }
