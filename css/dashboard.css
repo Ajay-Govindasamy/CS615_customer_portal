@@ -60,7 +60,7 @@ body {
 }
 
 .navbar-link:hover {
-    background-color: #da6b1d;
+    background-color: #0275d8;
     color: white;
 }
 
@@ -633,4 +633,10 @@ margin-left: 50px; background-color:#353b48;
 
 .sortGradient:hover {
     background: #e17055;
+}
+
+.btn-huge{
+    padding-top:15px;
+    padding-bottom:15px;
+    font-size: large;
 }
