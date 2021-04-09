@@ -322,47 +322,6 @@ async function publishDraft(itemId) {
 
 }
 
-function popUptrigger(){
-  document.getElementById("addMenuItemForm").style.display = "block";
- // document.getElementById("addItemPopUpId").style.display="block";
-}
-
-function closeForm() {
-  document.getElementById("addMenuItemForm").style.display = "none";
-}
-
-
-async function addNewMenuItem() {
-event.preventDefault();
-  const apiUrl = 'https://cs615-project.herokuapp.com/menuItems/addItem';
-  let _data = {
-    itemName: document.getElementById("itemNameId").value,
-    itemDescription: document.getElementById("itemDescriptionId").value, 
-    itemPrice: document.getElementById("itemPriceId").value, 
-    itemImage: document.getElementById("itemImageId").value, 
-    businessEmail: localStorage.getItem("businessEmail"), 
-  }
-
-  const response = await fetch(apiUrl, {
-    method: "POST",
-    body: JSON.stringify(_data),
-    headers: {"Content-type": "application/json; charset=UTF-8"}
-  })
-  .catch(err => console.log(err));
-
-  if(response.status==200){
-    const options = {
-      style: {
-        main: {
-          background: "#218c74",
-          color: "#fff",
-      },
-  },
-};
-    iqwerty.toast.toast('Item added Successfully!',options);
-  }
-}
-
 async function fetchBusinessMenus() {
   var draftButtonId=0;
   const apiPath = 'https://cs615-project.herokuapp.com/menuItems/generateMenu ';
@@ -436,3 +395,4 @@ document.getElementById("totalPrice").innerHTML=`Total: € ${total.toFixed(2)}`
 cartItems=[];
 
 }
+
