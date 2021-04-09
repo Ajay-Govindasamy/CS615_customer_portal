@@ -338,6 +338,7 @@ async function fetchBusinessMenus() {
 
   if(response.ok){ //success
     const responseData = await response.json();
+    localStorage.setItem("menuObject",JSON.stringify(responseData.menu))
     responseData.menu.forEach(element => {
           draftButtonId++;
           
@@ -394,5 +395,37 @@ function addCartItems(itemName,itemPrice) {
 document.getElementById("totalPrice").innerHTML=`Total: € ${total.toFixed(2)}`;
 cartItems=[];
 
+}
+
+function sortByProperty(property){  
+  return function(a,b){  
+     if(a[property] > b[property])  
+        return 1;  
+     else if(a[property] < b[property])  
+        return -1;  
+ 
+     return 0;  
+  }  
+}
+
+function sortJSON_objects() {
+  document.getElementById("displayMenuId").innerHTML="";
+  var displayItems = JSON.parse(localStorage.getItem('menuObject'));
+  var sortedArray = displayItems.sort(sortByProperty("itemPrice")); //sort according to item price 
+  sortedArray.forEach(element => {
+    $('#displayMenuId').append(`<div id=${element._id} class="menu-hold">
+    <div class="menu-container-food">
+        <div style="background-image:url(${element.itemImage})" class="menu-img">
+            &nbsp;
+        </div>
+        <h1 class="menu-title">${element.itemName}</h1>
+        <p class="menu-p">${element.itemDescription}</p>
+        <p class="price menu-p">€ ${element.itemPrice}</p>
+        <button style="margin-left: 100px; " type="button" class="btn btn-warning btn-lg lightGreen"
+        onclick="addCartItems('${element.itemName}', '${element.itemPrice}');" );">Add to Cart</button>
+    </div>
+</div>`);
+});
+toastr.success('Sorted items based on price')
 }
 

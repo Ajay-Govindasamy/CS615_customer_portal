@@ -627,4 +627,10 @@ margin-left: 50px; background-color:#353b48;
         font-size: 15px;
       }
 
-     
+      .sortGradient {
+        background: #ff7675;
+      }
+
+.sortGradient:hover {
+    background: #e17055;
+}

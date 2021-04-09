@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
+    <link href="css/toastr.css" rel="stylesheet"/>
 </head>
 
 <body onload="fetchBusinessMenus();">
@@ -46,9 +47,14 @@
         </div>
     </section>
 
+    <div class="container">
+        
+        <button style="margin-top: 50px;" type="button" onclick="sortJSON_objects()" class="btn  btn-lg float-end sortGradient">Sort Items</button></div>
+    
     <section class="menu">
-       
+      
         <div class="container">
+           
             <!--populate menus dynamically-->
             <div id="displayMenuId" class="menu-grid">
 
@@ -87,8 +93,10 @@
 
     <script src="js/script.js"></script>
     <script src="js/toast.min.js"></script>
+    <script src="js/toastr.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>
