@@ -186,7 +186,6 @@ async function fetchBusinessDelivery() {
 }
 
 async function fetchBusinessWithLocation() {
-  var draftButtonId=0;
   const apiUrl = 'restaurant/getNearBy';
   let postData = {
     location: localStorage.getItem("location"),
@@ -202,7 +201,6 @@ async function fetchBusinessWithLocation() {
   if(response.status==200){ //success
     const responseData = await response.json();
     responseData.forEach(element => {
-          draftButtonId++;
           $('#displayShopID').append(`<div id=${element._id} class="menu-hold">
           <div class="menu-container">
               <h1 class="menu-title">${element.businessName}</h1>
@@ -323,7 +321,6 @@ async function publishDraft(itemId) {
 }
 
 async function fetchBusinessMenus() {
-  var draftButtonId=0;
   const apiPath = 'https://cs615-project.herokuapp.com/menuItems/generateMenu ';
   let postData = {
     businessEmail: localStorage.getItem("tempBusinessEmail"),
@@ -340,7 +337,6 @@ async function fetchBusinessMenus() {
     const responseData = await response.json();
     localStorage.setItem("menuObject",JSON.stringify(responseData.menu))
     responseData.menu.forEach(element => {
-          draftButtonId++;
           
           $('#displayMenuId').append(`<div id=${element._id} class="menu-hold">
           <div class="menu-container-food">
