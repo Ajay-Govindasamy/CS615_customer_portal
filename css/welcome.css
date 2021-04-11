@@ -151,7 +151,7 @@ body {
 }
 
 .bg-dashboard {
-    background-image: url('../img/bg_dashboard.jpg');
+    background-image: url('../images/bg_dashboard.jpg');
     background-size: 100% 100%;
     filter: blur(8px);
 }

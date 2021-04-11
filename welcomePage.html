@@ -11,7 +11,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/welcome.css">
 </head>
 
 <body onload="fetchBusinessWithLocation();">
@@ -44,50 +44,10 @@
     <section class="menu">
 
         <div class="container">
-            <!--populate menus dynamically-->
             <div id="displayShopID" class="menu-grid">
-
             </div>
         </div>
     </section>
-    <!-- Modal -->
-    <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Change Delivery Date and Time</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                </div>
-                <div class="modal-body">
-                    <div id="accordion">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="form-popup" id="addMenuItemForm">
-        <form class="form-container text-white">
-            <h1 class="form__title">Add Menu Item</h1>
-
-            <div class="form__input-group">
-                <input type="text" id="itemNameId" class="form__input" autofocus placeholder="Item Name">
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="itemDescriptionId" class="form__input" autofocus placeholder="Item Description">
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="itemPriceId" class="form__input" autofocus placeholder="Item Price">
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="itemImageId" class="form__input" autofocus placeholder="Item Image URL">
-            </div>
-            <button type="submit" onclick="addNewMenuItem()" class="btn">Save</button>
-            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-        </form>
-    </div>
-
-
 
     <script src="js/script.js"></script>
     <script src="js/toast.min.js"></script>

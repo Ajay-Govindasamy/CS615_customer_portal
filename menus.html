@@ -9,14 +9,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="css/dashboard.css">
+    <link rel="stylesheet" href="css/welcome.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link href="css/toastr.css" rel="stylesheet" />
 </head>
 
 <body onload="fetchBusinessMenus();fetchBusinessDelivery();">
-    <!-- <section class="header"> -->
     <nav class="navbar">
         <div class="navbar-box">
             <h3 id="custNameId" class="heading-tertiary "></h3>
@@ -50,13 +49,12 @@
             </center>
             <div class="row">
                 <div class="offset-lg-11 col-lg-1">
-                    <button onclick="sortJSON_objects()" class="btn btn-outline-warning btn-huge"><!-- <i class="fas fa-sort-numeric-asc fa-2x"></i> --><img src="./img/sort.png" width="30px" height="30px"/></button>
+                    <button onclick="sortJSON_objects()" class="btn btn-outline-warning btn-huge"><!-- <i class="fas fa-sort-numeric-asc fa-2x"></i> --><img src="./images/sort.png" width="30px" height="30px"/></button>
                 </div>
             </div>
             <br/>
             <hr style="height:5px;border:none;color:rgb(255, 255, 255);background-color:rgb(255, 255, 255);" />
             <br/>
-            <!--populate menus dynamically-->
             <div id="displayMenuId" class="menu-grid">
 
             </div>
@@ -78,7 +76,7 @@
                 </table>
                 <br><br>
                 <div class="card">
-                    <div class="card-header">Dhoose delivery time slot</div>
+                    <div class="card-header">Choose delivery time slot</div>
                     <div class="card-body" id="chooseDeliv"></div>
                 </div><br>
                 <h1 class="text-center" id="totalPrice"></h1>
