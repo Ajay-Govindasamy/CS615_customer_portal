@@ -55,13 +55,23 @@ body {
 .navbar-link:link {
     text-decoration: none;
     color: white;
-    padding: 3rem;
     transition: all .2s ease;
 }
 
-.navbar-link:hover {
+
+/* .navbar-link:hover {
     background-color: #0275d8;
     color: white;
+} */
+
+.warning {
+    background-color: rgb(253, 253, 174);
+    color: red;
+}
+
+.successful {
+    background-color: rgb(181, 253, 174);
+    color: green;
 }
 
 .navbar-link-book:visited,
@@ -128,17 +138,40 @@ body {
     color: white;
 }
 
+.fit-height {
+    height: 20px;
+    max-height: 25px;
+    overflow-y: scroll;
+}
+
 .heading-primary {
     font-size: 6.5rem;
     font-weight: 600;
     letter-spacing: 3px;
-    
+}
+
+.bg-dashboard {
+    background-image: url('../img/bg_dashboard.jpg');
+    background-size: 100% 100%;
+    filter: blur(8px);
 }
 
 #restaurant {
-    color: #da6b1d;
+    color: #ffffff;
     font-weight: 800;
     font-size: 8rem;
+    font-family: 'Satisfy', cursive;
+    text-decoration: underline;
+    text-transform: capitalize;
+}
+
+#mainHeading {
+    color: #ffffff;
+    font-weight: 800;
+    font-size: 8rem;
+    font-family: 'Satisfy', cursive;
+    text-decoration: underline;
+    text-transform: none;
 }
 
 .lead {
@@ -174,8 +207,8 @@ body {
 .menu {
     width: 100%;
     padding: 10rem 5rem;
-    background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(17,17,136,1) 55%, rgba(0,212,255,1) 100%);
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgba(2, 0, 36, 1) 0%, rgba(17, 17, 136, 1) 55%, rgba(0, 212, 255, 1) 100%);
 }
 
 .menu-heading {
@@ -221,6 +254,16 @@ body {
     transition: all .4s ease;
 }
 
+.vertical-center {
+    margin: 0;
+    margin-left: 4%;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-align: center!important;
+}
+
 .menu-container-food {
     /* width: 100%; */
     height: 50rem;
@@ -232,20 +275,35 @@ body {
     transition: all .4s ease;
 }
 
+.card-footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    left: 0;
+}
+
+.card-title {
+    padding-bottom: 7%;
+}
+
+.card-text {
+    padding-top: 2.5%;
+    padding-bottom: 2.5%;
+}
+
 .menu-container:hover {
     box-shadow: 0 0 5rem rgba(0, 0, 0, .4);
     transform: scale(1.07);
-    background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(186,145,56,1) 100%);
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(186, 145, 56, 1) 100%);
 }
 
 .menu-container-food:hover {
     box-shadow: 0 0 5rem rgba(0, 0, 0, .4);
     transform: scale(1.07);
-    background: rgb(34,193,195);
-background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(186,145,56,1) 100%);
+    background: rgb(34, 193, 195);
+    background: linear-gradient(0deg, rgba(34, 193, 195, 1) 0%, rgba(186, 145, 56, 1) 100%);
 }
-
 
 .menu-p {
     font-size: 1.4rem;
@@ -260,7 +318,6 @@ background: linear-gradient(0deg, rgba(34,193,195,1) 0%, rgba(186,145,56,1) 100%
     font-size: 3rem;
     text-align: center;
     margin-top: 10%;
-    overflow-y: hidden;
 }
 
 .price {
@@ -373,7 +430,7 @@ input:checked+.slider:before {
     border-radius: 3rem;
 }
 
-.card-body {
+#chooseDeliv {
     height: auto;
     max-height: 150px;
     overflow-y: scroll;
@@ -389,7 +446,6 @@ input:checked+.slider:before {
     position: fixed;
     bottom: 30px;
     right: 28px;
-
 }
 
 .btn-circle {
@@ -406,20 +462,23 @@ input:checked+.slider:before {
     background-color: #da6b1d;
     color: white;
 }
-.lightDark{
-margin-left: 50px; background-color:#353b48;
+
+.lightDark {
+    margin-left: 50px;
+    background-color: #353b48;
 }
 
-.lightDark:hover{
+.lightDark:hover {
     background-color: black;
-    }
+}
 
-.lightGreen:hover{
-    background-color:#218c74;
+.lightGreen:hover {
+    background-color: #218c74;
 }
 
 
 /* Button used to open the contact form - fixed at the bottom of the page */
+
 .open-button {
     background-color: #555;
     color: white;
@@ -431,10 +490,12 @@ margin-left: 50px; background-color:#353b48;
     bottom: 23px;
     right: 28px;
     width: 280px;
-  }
-  
-  /* The popup form - hidden by default */
-  .form-popup {
+}
+
+
+/* The popup form - hidden by default */
+
+.form-popup {
     display: none;
     position: fixed;
     bottom: 0;
@@ -442,201 +503,306 @@ margin-left: 50px; background-color:#353b48;
     border: 3px solid #2f3640;
     z-index: 9;
     border-radius: 25px;
-  }
-  
-  /* Add styles to the form container */
-  .form-container {
+}
+
+
+/* Add styles to the form container */
+
+.form-container {
     max-width: 300px;
     padding: 10px;
     background-color: #2f3640;
     border-radius: 20px;
-  }
-  
-  /* Full-width input fields */
-  .form-container input[type=text], .form-container input[type=password] {
+}
+
+
+/* Full-width input fields */
+
+.form-container input[type=text],
+.form-container input[type=password] {
     width: 100%;
     padding: 15px;
     margin: 5px 0 22px 0;
     border: none;
     background: #f1f1f1;
-  }
-  
-  /* When the inputs get focus, do something */
-  .form-container input[type=text]:focus, .form-container input[type=password]:focus {
+}
+
+
+/* When the inputs get focus, do something */
+
+.form-container input[type=text]:focus,
+.form-container input[type=password]:focus {
     background-color: #ddd;
     outline: none;
-  }
-  
-  /* Set a style for the submit/login button */
-  .form-container .btn {
+}
+
+
+/* Set a style for the submit/login button */
+
+.form-container .btn {
     background-color: #4CAF50;
     color: white;
     padding: 16px 20px;
     border: none;
     cursor: pointer;
     width: 100%;
-    margin-bottom:10px;
+    margin-bottom: 10px;
     opacity: 0.8;
-  }
-  
-  /* Add a red background color to the cancel button */
-  .form-container .cancel {
+}
+
+
+/* Add a red background color to the cancel button */
+
+.form-container .cancel {
     background-color: red;
-  }
-  
-  /* Add some hover effects to buttons */
-  .form-container .btn:hover, .open-button:hover {
+}
+
+
+/* Add some hover effects to buttons */
+
+.form-container .btn:hover,
+.open-button:hover {
     opacity: 1;
-  }
+}
 
-  .container,
-  .form__input,
-  .form__button {
-      font: 500 1rem 'Quicksand', sans-serif;
-  }
-  
-  .form--hidden {
-      display: none;
-  }
-  
-  .form>*:first-child {
-      margin-top: 0;
-  }
-  
-  .form>*:last-child {
-      margin-bottom: 0;
-  }
-  
-  .form__title {
-      margin-bottom: 2rem;
-      text-align: center;
-  }
-  
-  .form__message {
-      text-align: center;
-      margin-bottom: 1rem;
-  }
-  
-  .form__message--success {
-      color: var(--color-success);
-  }
-  
-  .form__message--error {
-      color: var(--color-error);
-  }
-  
-  .form__input-group {
-      margin-bottom: 1rem;
-  }
-  
-  .form__input {
-      display: block;
-      width: 100%;
-      padding: 0.75rem;
-      box-sizing: border-box;
-      border-radius: var(--border-radius);
-      border: 1px solid #dddddd;
-      outline: none;
-      background: #eeeeee;
-      transition: background 0.2s, border-color 0.2s;
-  }
-  
-  .form__input:focus {
-      border-color: var(--color-primary);
-      background: #ffffff;
-  }
-  
-  .form__input--error {
-      color: var(--color-error);
-      border-color: var(--color-error);
-  }
-  
-  .form__input-error-message {
-      margin-top: 0.5rem;
-      font-size: 0.85rem;
-      color: var(--color-error);
-  }
-  
-  .form__button {
-      width: 100%;
-      padding: 1rem 2rem;
-      font-weight: bold;
-      font-size: 1.1rem;
-      color: #ffffff;
-      border: none;
-      border-radius: var(--border-radius);
-      outline: none;
-      cursor: pointer;
-      background: var(--color-primary);
-  }
-  
-  .form__button:hover {
-      background: var(--color-primary-dark);
-  }
-  
-  .form__button:active {
-      transform: scale(0.98);
-  }
-  
-  .form__text {
-      text-align: center;
-  }
-  
-  .form__link {
-      color: var(--color-secondary);
-      text-decoration: none;
-      cursor: pointer;
-  }
-  
-  .form__link:hover {
-      text-decoration: underline;
-  }
+.container,
+.form__input,
+.form__button {
+    font: 500 1rem 'Quicksand', sans-serif;
+}
 
-  .add_item_text {
+.form--hidden {
+    display: none;
+}
+
+.form>*:first-child {
+    margin-top: 0;
+}
+
+.form>*:last-child {
+    margin-bottom: 0;
+}
+
+.form__title {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form__message {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.form__message--success {
+    color: var(--color-success);
+}
+
+.form__message--error {
+    color: var(--color-error);
+}
+
+.form__input-group {
+    margin-bottom: 1rem;
+}
+
+.form__input {
+    display: block;
+    width: 100%;
+    padding: 0.75rem;
+    box-sizing: border-box;
+    border-radius: var(--border-radius);
+    border: 1px solid #dddddd;
+    outline: none;
+    background: #eeeeee;
+    transition: background 0.2s, border-color 0.2s;
+}
+
+.form__input:focus {
+    border-color: var(--color-primary);
+    background: #ffffff;
+}
+
+.form__input--error {
+    color: var(--color-error);
+    border-color: var(--color-error);
+}
+
+.form__input-error-message {
+    margin-top: 0.5rem;
+    font-size: 0.85rem;
+    color: var(--color-error);
+}
+
+.form__button {
+    width: 100%;
+    padding: 1rem 2rem;
+    font-weight: bold;
+    font-size: 1.1rem;
+    color: #ffffff;
+    border: none;
+    border-radius: var(--border-radius);
+    outline: none;
+    cursor: pointer;
+    background: var(--color-primary);
+}
+
+.form__button:hover {
+    background: var(--color-primary-dark);
+}
+
+.form__button:active {
+    transform: scale(0.98);
+}
+
+.form__text {
+    text-align: center;
+}
+
+.form__link {
+    color: var(--color-secondary);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.form__link:hover {
+    text-decoration: underline;
+}
+
+.add_item_text {
     position: fixed;
     bottom: 0px;
     right: 28px;
-  }
+}
 
-  .italicFont {
+.italicFont {
     font-family: "Brush Script MT";
     font-size: xxx-large;
-    }
+}
 
-    table {
-        font-family: arial, sans-serif;
-        border-collapse: collapse;
-        width: 100%;
-      }
-      
-      td, th {
-        border: 1px solid #dddddd;
-        text-align: left;
-        padding: 8px;
-      }
-      
-      tr:nth-child(even) {
-        background-color: #dddddd;
-      }
-      
-      table tbody tr th  {
-        font-size: 24px;
-      }
- 
-      table tbody tr td  {
-        font-size: 15px;
-      }
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
 
-      .sortGradient {
-        background: #ff7675;
-      }
+td,
+th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+table tbody tr th {
+    font-size: 24px;
+}
+
+table tbody tr td {
+    font-size: 15px;
+}
+
+.sortGradient {
+    background: #ff7675;
+}
 
 .sortGradient:hover {
     background: #e17055;
 }
 
-.btn-huge{
-    padding-top:15px;
-    padding-bottom:15px;
+.btn-huge {
+    padding-top: 15px;
+    padding-bottom: 15px;
     font-size: large;
+}
+
+
+/* The snackbar - position it at the bottom and in the middle of the screen */
+
+#snackbar {
+    visibility: hidden;
+    /* Hidden by default. Visible on click */
+    min-width: 250px;
+    /* Set a default minimum width */
+    margin-left: -125px;
+    /* Divide value of min-width by 2 */
+    background-color: #333;
+    /* Black background color */
+    color: #fff;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    border-radius: 2px;
+    /* Rounded borders */
+    padding: 16px;
+    /* Padding */
+    position: fixed;
+    /* Sit on top of the screen */
+    z-index: 1;
+    /* Add a z-index if needed */
+    left: 50%;
+    /* Center the snackbar */
+    bottom: 30px;
+    /* 30px from the bottom */
+}
+
+
+/* Show the snackbar when clicking on a button (class added with JavaScript) */
+
+#snackbar.show {
+    visibility: visible;
+    /* Show the snackbar */
+    /* Add animation: Take 0.5 seconds to fade in and out the snackbar.
+    However, delay the fade out process for 2.5 seconds */
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+
+/* Animations to fade the snackbar in and out */
+
+@-webkit-keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@keyframes fadein {
+    from {
+        bottom: 0;
+        opacity: 0;
+    }
+    to {
+        bottom: 30px;
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
+}
+
+@keyframes fadeout {
+    from {
+        bottom: 30px;
+        opacity: 1;
+    }
+    to {
+        bottom: 0;
+        opacity: 0;
+    }
 }

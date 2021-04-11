@@ -10,93 +10,100 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <link rel="stylesheet" href="css/dashboard.css">
-    <link href="css/toastr.css" rel="stylesheet"/>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
+    <link href="css/toastr.css" rel="stylesheet" />
 </head>
 
-<body onload="fetchBusinessMenus();">
-    <section class="header">
-        <nav class="navbar">
-            <div class="navbar-box">
-                <h3 id="custNameId" class="heading-tertiary "></h3>
-            </div>
-
-            <ul class="navbar-list">
-                <li class="navbar-item">
-                    <a href="#" class="navbar-link" data-toggle="modal" data-target="#exampleModal"><img src="https://img.icons8.com/nolan/50/fast-cart.png"/></a>
-                    </li>
-                
-                    <a href="index.html" onclick="logOut()" class="btn btn-primary btn-huge">
-                        <span class="btn btn-block "></span> Log Out
-                      </a>
-            </ul>
-
-            <div class="toggle">
-                <div class="line1"></div>
-                <div class="line2"></div>
-                <div class="line3"></div>
-            </div>
-        </nav>
-
-        <div class="header-container">
-            <div class="video">
-            <div class="header-box">
-                <h1 class="heading-primary">
-                    <span id="restaurant">MENU</span>
-                </h1>
-            </div>
+<body onload="fetchBusinessMenus();fetchBusinessDelivery();">
+    <!-- <section class="header"> -->
+    <nav class="navbar">
+        <div class="navbar-box">
+            <h3 id="custNameId" class="heading-tertiary "></h3>
         </div>
-    </section>
 
-    <div class="container">
-        
-        <button style="margin-top: 50px;" type="button" onclick="sortJSON_objects()" class="btn  btn-lg float-end sortGradient">Sort Items</button></div>
-    
+        <ul class="navbar-list">
+            <li class="navbar-item">
+                <a href="#" class="navbar-link" data-toggle="modal" data-target="#cartModal"><i class="fa fa-shopping-cart fa-2x" style="color: #fff;" aria-hidden="true"></i></a>
+            </li>
+            <li class="navbar-item">
+                <a href="index.html" onclick="logOut()" class="btn btn-outline-primary btn-huge"><span class="p-5">Log Out</span></a>
+            </li>
+        </ul>
+
+        <div class="toggle">
+            <div class="line1"></div>
+            <div class="line2"></div>
+            <div class="line3"></div>
+        </div>
+    </nav>
+
+
+    <!-- </section> -->
     <section class="menu">
-      
         <div class="container">
-           
+
+            <center>
+                <h1 class="heading-primary" style="padding-top: 5%; padding-bottom: 5%;">
+                    <span id="restaurant"></span>
+                </h1>
+            </center>
+            <div class="row">
+                <div class="offset-lg-11 col-lg-1">
+                    <button onclick="sortJSON_objects()" class="btn btn-outline-warning btn-huge"><!-- <i class="fas fa-sort-numeric-asc fa-2x"></i> --><img src="./img/sort.png" width="30px" height="30px"/></button>
+                </div>
+            </div>
+            <br/>
+            <hr style="height:5px;border:none;color:rgb(255, 255, 255);background-color:rgb(255, 255, 255);" />
+            <br/>
             <!--populate menus dynamically-->
             <div id="displayMenuId" class="menu-grid">
 
             </div>
         </div>
     </section>
-
-    <div class="modal fade" id="exampleModal" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div  class="modal-dialog" role="document">
-            <div class="modal-content" >
+    <div class="modal fade" id="cartModal" role="dialog" aria-labelledby="cartModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
                 <div class="modal-header text-center">
-                    <h1 class="modal-title " id="exampleModalLabel">CART ITEMS</h1>
+                    <h1 class="modal-title " id="cartModalLabel">CART ITEMS</h1>
                 </div>
                 <table id="addItems">
                     <tr>
-                      <th>Item Name</th>
-                      <th>Price</th>
-                      <th>Quantity</th>
+                        <th>Item Name</th>
+                        <th>Price</th>
+                        <th>Quantity</th>
                     </tr>
-                    
-                </table>
-                <br><br><br>
-                <h1 class="text-center" id="totalPrice"></h1>
-                <div>
-                <div><h3><label style="padding-left: 70px;" for="fname">Address</label><input style="margin-left: 2%;" type="text" id="fname" name="fname"></h3></div>
-                
-                <div style="margin-left: 220px;"><button type="button" class="btn btn-success btn-lg ">Pay</button></div>
 
-                <div class="modal-body">
-                    <div id="accordion">
+                </table>
+                <br><br>
+                <div class="card">
+                    <div class="card-header">Dhoose delivery time slot</div>
+                    <div class="card-body" id="chooseDeliv"></div>
+                </div><br>
+                <h1 class="text-center" id="totalPrice"></h1>
+                <p id="warningMessage"></p>
+                <div>
+                    <div>
+                        <h3><label style="padding-left: 70px;" for="fname">Address</label><input style="margin-left: 2%;" type="text" id="orderAddress" name="orderAddress"></h3>
+                    </div>
+
+                    <div style="margin-left: 220px;"><button type="button" class="btn btn-success btn-lg" onclick="checkCompleteAndUpdate()">Order now</button></div>
+
+                    <div class="modal-body">
+                        <div id="accordion">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <script src="js/script.js"></script>
-    <script src="js/toast.min.js"></script>
-    <script src="js/toastr.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="js/script.js"></script>
+        <script src="js/toast.min.js"></script>
+        <script src="js/toastr.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 </body>
 
 </html>

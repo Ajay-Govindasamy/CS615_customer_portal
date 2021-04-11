@@ -9,6 +9,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
@@ -20,9 +22,7 @@
             </div>
 
             <ul class="navbar-list">
-                <a href="index.html" onclick="logOut()" class="btn btn-primary btn-huge">
-                    <span class="btn btn-block "></span> Log Out
-                  </a>
+                <a href="index.html" onclick="logOut()" class="btn btn-outline-primary btn-huge"><span class="p-5">Log Out</span></a>
             </ul>
 
             <div class="toggle">
@@ -32,18 +32,17 @@
             </div>
         </nav>
 
-        <div class="header-container">
-            <div class="video">
-            <div class="header-box">
-                <h1 class="heading-primary">
-                    <span id="restaurant">SHOP DETAILS</span>
-                </h1>
-            </div>
+        <div class="header-container bg-dashboard">
+        </div>
+        <div class="header-box">
+            <h1 class="heading-primary">
+                <span id="mainHeading"></span>
+            </h1>
         </div>
     </section>
 
     <section class="menu">
-       
+
         <div class="container">
             <!--populate menus dynamically-->
             <div id="displayShopID" class="menu-grid">
@@ -70,7 +69,7 @@
     <div class="form-popup" id="addMenuItemForm">
         <form class="form-container text-white">
             <h1 class="form__title">Add Menu Item</h1>
-      
+
             <div class="form__input-group">
                 <input type="text" id="itemNameId" class="form__input" autofocus placeholder="Item Name">
             </div>
@@ -83,10 +82,10 @@
             <div class="form__input-group">
                 <input type="text" id="itemImageId" class="form__input" autofocus placeholder="Item Image URL">
             </div>
-          <button type="submit" onclick="addNewMenuItem()" class="btn">Save</button>
-          <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+            <button type="submit" onclick="addNewMenuItem()" class="btn">Save</button>
+            <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
         </form>
-      </div>
+    </div>
 
 
 
