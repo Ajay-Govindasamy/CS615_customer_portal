@@ -23,7 +23,7 @@ async function customerSignIn() {
         const responseData = await response.json();
         localStorage.setItem("customerName", responseData.user.name);
         localStorage.setItem("location", responseData.user.location);
-        window.location = 'dashboard.html';
+        window.location = 'welcomePage.html';
     } else {
         document.getElementById("signInErr").style.display = "block";
     }
