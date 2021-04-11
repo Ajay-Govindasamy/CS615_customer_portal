@@ -1,100 +1,183 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Online PUB</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1"
+      crossorigin="anonymous"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/all.css" integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="shortcut icon" href="/assets/favicon.ico">
-    <link rel="stylesheet" href="css/style.css">
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.8/css/all.css"
+      integrity="sha384-3AB7yXWz4OeoZcPbieVW64vVXEwADiYyAEhwilzWsLw+9FgqpyjjStpPnpBO8o8S"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <link rel="shortcut icon" href="/assets/favicon.ico" />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
 
+  <body>
+    <div style="background-color: black" class="container">
+      <form class="form" id="login">
+        <h1 class="form__title text-white">Customer Login</h1>
+        <div class="form__message form__message--error"></div>
+        <div
+          style="display: none"
+          class="alert alert-danger"
+          id="signInErr"
+          role="alert"
+        >
+          e-mail/password is incorrect.
+        </div>
 
-</head>
+        <div
+          style="display: none"
+          class="alert alert-success"
+          id="signUpInfo"
+          role="alert"
+        >
+          Registration success !!!
+        </div>
 
-<body>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="userEmailId"
+            class="form__input"
+            autofocus
+            placeholder="Enter e-mail"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="password"
+            id="userEmailPass"
+            class="form__input"
+            autofocus
+            placeholder="Password"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <button class="form__button" type="submit" onclick="customerSignIn()">
+          Log In</button
+        ><br /><br />
+        <p class="form__text">
+          <a class="form__link text-white" href="./" id="linkCreateAccount"
+            >Create a new Account here.</a
+          >
+        </p>
+      </form>
 
-    <div style="background-color: black;" class="container">
-        <form class="form" id="login">
-            <h1 class="form__title text-white">Customer Login</h1>
-            <div class="form__message form__message--error"></div>
-            <div style="display:none" class="alert alert-danger" id="signInErr" role="alert">
-                e-mail/password is incorrect.
-            </div>
+      <form
+        class="form form--hidden"
+        id="createAccount"
+        onsubmit="customerSignUp()"
+      >
+        <h1 class="form__title text-white">Create Account</h1>
+        <div class="form__message form__message--error"></div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="signupUsername"
+            class="form__input"
+            autofocus
+            placeholder="Name"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="customerAddress"
+            class="form__input"
+            autofocus
+            placeholder="Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
 
-            <div style="display:none" class="alert alert-success" id="signUpInfo" role="alert">
-                Registration success !!!
-            </div>
+        <div class="form__input-group">
+          <select
+            class="form__input"
+            autofocus
+            placeholder="Select Location"
+            name="cars"
+            id="customerLoc"
+          >
+            <option value="volvo">Select Location</option>
+            <option value="Maynooth">Maynooth</option>
+            <option value="Celbridge">Celbridge</option>
+            <option value="Kilcock">Kilcock</option>
+            <option value="Timahoe">Timahoe</option>
+            <option value="Naas">Naas</option>
+            <option value="Rathmore">Rathmore</option>
+          </select>
+          <div class="form__input-error-message"></div>
+        </div>
 
-            <div class="form__input-group">
-                <input type="text" id="userEmailId" class="form__input" autofocus placeholder="Enter e-mail">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" id="userEmailPass" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-            <button class="form__button" type="submit" onclick="customerSignIn()">Log In</button><br><br>
-            <p class="form__text">
-                <a class="form__link text-white" href="./" id="linkCreateAccount">Create a new Account here.</a>
-            </p>
-        </form>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="customerMobile"
+            class="form__input"
+            autofocus
+            placeholder="Contact"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="text"
+            id="customerMail"
+            class="form__input"
+            autofocus
+            placeholder="Email Address"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
+        <div class="form__input-group">
+          <input
+            type="password"
+            id="customerPass"
+            class="form__input"
+            autofocus
+            placeholder="Password"
+          />
+          <div class="form__input-error-message"></div>
+        </div>
 
-        <form class="form form--hidden" id="createAccount" onsubmit="customerSignUp()">
-            <h1 class="form__title text-white">Create Account</h1>
-            <div class="form__message form__message--error"></div>
-            <div class="form__input-group">
-                <input type="text" id="signupUsername" class="form__input" autofocus placeholder="Name">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="customerAddress" class="form__input" autofocus placeholder="Address">
-                <div class="form__input-error-message"></div>
-            </div>
-
-            <div class="form__input-group">
-                <select class="form__input" autofocus placeholder="Select Location" name="cars" id="customerLoc">
-                  <option value="volvo">Select Location</option>
-                  <option value="Maynooth">Maynooth</option>
-                  <option value="Celbridge">Celbridge</option>
-                  <option value="Kilcock">Kilcock</option>
-                  <option value="Timahoe">Timahoe</option>
-                  <option value="Naas">Naas</option>
-                  <option value="Rathmore">Rathmore</option>
-                </select>
-                <div class="form__input-error-message"></div>
-            </div>
-
-            <div class="form__input-group">
-                <input type="text" id="customerMobile" class="form__input" autofocus placeholder="Contact">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="text" id="customerMail" class="form__input" autofocus placeholder="Email Address">
-                <div class="form__input-error-message"></div>
-            </div>
-            <div class="form__input-group">
-                <input type="password" id="customerPass" class="form__input" autofocus placeholder="Password">
-                <div class="form__input-error-message"></div>
-            </div>
-
-            <button class="form__button" type="submit">Register</button><br><br>
-            <p class="form__text ">
-                <a class="form__link text-white" href="./" id="linkLogin">Already have an account? Sign in</a>
-            </p>
-        </form>
+        <button class="form__button" type="submit">Register</button><br /><br />
+        <p class="form__text">
+          <a class="form__link text-white" href="./" id="linkLogin"
+            >Already have an account? Sign in</a
+          >
+        </p>
+      </form>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+      integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+      integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+      crossorigin="anonymous"
+    ></script>
     <script src="js/script.js"></script>
     <script src="js/toast.min.js"></script>
-
-</body>
-
+  </body>
 </html>
